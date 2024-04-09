@@ -93,6 +93,6 @@ This is the place for you to write reflections:
 
 #### Reflection Subscriber-1
 
-Perhatikan bahwa kita menggunakan `RwLock<>` (Read Write Lock) agar kita dapat melakukan pembacaan secara sekaligus dan tidak sekuensial. Hal ini berbeda dengan mutex yang hanya memperbolehkan kita untuk mengakses suatu data pada suatu waktu. Selain itu, pada mutex kita perlu menunggu agar sebuah thread selesai untuk mengakses data tersebut. Dalam kasus ini, jelas Read Write Lock lebih baik untuk digunakan.
+Perhatikan bahwa kita menggunakan `RwLock<>` (Read Write Lock) agar kita dapat melakukan pembacaan secara sekaligus dan tidak sekuensial. Hal ini berbeda dengan mutex yang hanya memperbolehkan kita untuk mengakses suatu data pada suatu waktu. Selain itu, pada mutex kita perlu menunggu agar sebuah thread selesai untuk mengakses data tersebut. Dalam kasus ini, jelas Read Write Lock lebih baik untuk digunakan. Kemudian mengenai lazy_static, rust tidak menyediakannya bagi kita. Perhatikan bahwa static variable adalah hal yang dihindari pada rust. Hal ini karena rust adalah bahasa yang dibuat supaya kita bisa melakukan multi-threading. Sedangkan, static variable yang pada dasarnya adalah variable yang bisa digunakan bersama adalah variabel yang tidak aman. Hal ini karena bisa saja dilakukan pengeditan pada variabel itu secara bersamaan oleh sebuah thread. Hal ini jelas menimbulkan masalah.
 
 #### Reflection Subscriber-2
